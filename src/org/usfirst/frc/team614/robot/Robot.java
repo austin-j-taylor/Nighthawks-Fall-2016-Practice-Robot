@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-// swiggity
+//	MECANUM
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static Drivetrain drivetrain;
 	public static OI oi;
