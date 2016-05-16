@@ -11,7 +11,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drivetrain extends Subsystem {
 	
-	VictorSP leftMotor, rightMotor;
+	//VictorSP leftMotor, rightMotor;
+	VictorSP leftMotor = new VictorSP(1);
+	VictorSP rightMotor = new VictorSP(0);
 	RobotDrive drivetrain;
 	
 	    public Drivetrain() {

@@ -22,7 +22,7 @@ public class JoystickDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(OI.driverGamepad.getAxis(OI.driverGamepad.leftStick_Y), OI.driverGamepad.getAxis(OI.driverGamepad.rightStick_X));
+    	Robot.drivetrain.arcadeDrive(-OI.driverGamepad.getAxis(OI.driverGamepad.leftStick_Y), -OI.driverGamepad.getAxis(OI.driverGamepad.rightStick_X));
     }
 
     // Make this return true when this Command no longer needs to run execute()
