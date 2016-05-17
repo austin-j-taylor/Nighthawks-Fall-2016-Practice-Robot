@@ -85,6 +85,10 @@ public class Gamepad extends Joystick{
     		
     	return val;
     }
+    // get magnitude of specified x and y components through pythagorean theorem
+    public double getMagnitude() {
+        return Math.sqrt(Math.pow(getX(), 2) + Math.pow(getY(), 2));
+      }
     
     /**
      * Get the value of a gamepad button.
