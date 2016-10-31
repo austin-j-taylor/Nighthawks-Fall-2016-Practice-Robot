@@ -1,9 +1,10 @@
 package org.usfirst.frc.team614.robot;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-
 import org.team708.robot.util.Gamepad;
-import org.usfirst.frc.team614.robot.commands.ExampleCommand;
+import org.usfirst.frc.team614.robot.commands.MoveABit;
+
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,5 +38,16 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	public static Gamepad driverGamepad = new Gamepad(0);
+	
+	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
+	
+	public OI() {
+		
+		// button commands
+		
+		moveABit.whenPressed(new MoveABit());
+		
+	}
+
 }
 

@@ -29,5 +29,8 @@ public class Drivetrain extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new JoystickDrive());
     }
+    public void stop() {
+    	drivetrain.arcadeDrive(0, 0);
+    }
 }
 
