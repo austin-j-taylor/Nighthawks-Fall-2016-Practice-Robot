@@ -2,6 +2,10 @@ package org.usfirst.frc.team614.robot;
 
 import org.team708.robot.util.Gamepad;
 import org.usfirst.frc.team614.robot.commands.MoveABit;
+import org.usfirst.frc.team614.robot.commands.shooter.LowerLift;
+import org.usfirst.frc.team614.robot.commands.shooter.RaiseLift;
+import org.usfirst.frc.team614.robot.commands.shooter.RevIn;
+import org.usfirst.frc.team614.robot.commands.shooter.RevOut;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -37,15 +41,26 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-	public static Gamepad driverGamepad = new Gamepad(0);
 	
+	public static Gamepad driverGamepad = new Gamepad(0);
+	public static Gamepad operatorGamepad = new Gamepad(1);
+
+
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
+	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
+	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
+	private static final Button raiseLift = new JoystickButton(driverGamepad, Gamepad.button_X);
+	private static final Button lowerLift = new JoystickButton(driverGamepad, Gamepad.button_Y);
 	
 	public OI() {
 		
 		// button commands
 		
 		moveABit.whenPressed(new MoveABit());
+		revIn.whileHeld(new RevIn());
+		revOut.whileHeld(new RevOut());
+		raiseLift.whenPressed(new RaiseLift());
+		lowerLift.whenPressed(new LowerLift());
 		
 	}
 
