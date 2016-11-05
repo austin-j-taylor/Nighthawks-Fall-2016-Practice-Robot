@@ -22,7 +22,7 @@ public class Shooter extends Subsystem {
 		angleMotor = new VictorSP(RobotMap.shooterAngleMotor);
 	}
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
+        // Set the command that is called at the start
         setDefaultCommand(new ShooterDrive());
     }
 

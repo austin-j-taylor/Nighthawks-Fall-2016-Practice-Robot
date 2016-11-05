@@ -22,8 +22,9 @@ public class ShooterDrive extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
+    // currently does nothing, all input is done through button presses
     protected void execute() {
-    	Robot.shooter.setMotorSpeed(OI.operatorGamepad.getAxis(Gamepad.rightStick_Y));
+//    	Robot.shooter.setMotorSpeed(OI.operatorGamepad.getAxis(Gamepad.rightStick_Y));
 //    	Robot.shooter.shootMode(-OI.operatorGamepad.getAxis(Gamepad.leftStick_Y), Robot.shooter.getUsePID());
     }
 
