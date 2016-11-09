@@ -47,10 +47,10 @@ public class OI {
 
 
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
-	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
-	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
-	private static final Button raiseLift = new JoystickButton(driverGamepad, Gamepad.button_X);
-	private static final Button lowerLift = new JoystickButton(driverGamepad, Gamepad.button_Y);
+	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_X);
+	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_Y);
+	//private static final Button raiseLift = new JoystickButton(driverGamepad, Gamepad.button_X);
+	//private static final Button lowerLift = new JoystickButton(driverGamepad, Gamepad.button_Y);
 	
 	public OI() {
 		
@@ -59,8 +59,8 @@ public class OI {
 		moveABit.whenPressed(new MoveABit());
 		revIn.whileHeld(new RevIn());
 		revOut.whileHeld(new RevOut());
-		raiseLift.whenPressed(new RaiseLift());
-		lowerLift.whenPressed(new LowerLift());
+		//raiseLift.whenPressed(new RaiseLift());
+		//lowerLift.whenPressed(new LowerLift());
 		
 	}
 
