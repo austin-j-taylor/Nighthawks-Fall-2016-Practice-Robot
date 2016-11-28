@@ -3,7 +3,7 @@ package org.usfirst.frc.team614.robot;
 
 import org.usfirst.frc.team614.robot.commands.MoveABit;
 import org.usfirst.frc.team614.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team614.robot.subsystems.Shooter;
+import org.usfirst.frc.team614.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,7 +23,8 @@ public class Robot extends IterativeRobot {
 // ARCADE
 	public static Drivetrain drivetrain;
 	public static OI oi;
-	public static Shooter shooter;
+	public static Pneumatics pneumatics;
+//	public static Shooter shooter;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -35,7 +36,9 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	drivetrain = new Drivetrain();
 		oi = new OI();
-		shooter = new Shooter();
+		pneumatics = new Pneumatics();
+		
+//		shooter = new Shooter();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new MoveABit());
 //        chooser.addObject("My Auto", new MyAutoCommand());

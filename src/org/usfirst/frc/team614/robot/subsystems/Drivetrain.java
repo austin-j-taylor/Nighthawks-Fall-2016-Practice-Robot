@@ -17,14 +17,14 @@ public class Drivetrain extends Subsystem {
 	VictorSP rightMotor = new VictorSP(RobotMap.drivetrainRightMotor);
 	RobotDrive drivetrain;
 	
-	    public Drivetrain() {
+    public Drivetrain() {
     	drivetrain = new RobotDrive(leftMotor, rightMotor);
     }
-    // Put methods for controlling this subsystem
+    // Put methods fo r controlling this subsystem
     // here. Call these from Commands.
-	    public void arcadeDrive(double leftValue, double rightValue) {
-	    	drivetrain.arcadeDrive(leftValue, rightValue);
-	    }
+    public void arcadeDrive(double moveValue, double rotateValue) {
+    	drivetrain.arcadeDrive(moveValue, rotateValue);
+    }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
     	setDefaultCommand(new JoystickDrive());

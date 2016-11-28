@@ -1,11 +1,9 @@
 package org.usfirst.frc.team614.robot;
 
 import org.team708.robot.util.Gamepad;
+import org.usfirst.frc.team614.robot.commands.ExtendPiston;
 import org.usfirst.frc.team614.robot.commands.MoveABit;
-import org.usfirst.frc.team614.robot.commands.shooter.LowerLift;
-import org.usfirst.frc.team614.robot.commands.shooter.RaiseLift;
-import org.usfirst.frc.team614.robot.commands.shooter.RevIn;
-import org.usfirst.frc.team614.robot.commands.shooter.RevOut;
+import org.usfirst.frc.team614.robot.commands.RetractPiston;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -47,18 +45,27 @@ public class OI {
 
 
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
-	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_X);
-	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_Y);
+
+	
+	private JoystickButton ExtendPiston = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
+	private JoystickButton RetractPiston = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
+//	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_X);
+//	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_Y);
 	//private static final Button raiseLift = new JoystickButton(driverGamepad, Gamepad.button_X);
 	//private static final Button lowerLift = new JoystickButton(driverGamepad, Gamepad.button_Y);
+	
 	
 	public OI() {
 		
 		// button commands
 		
 		moveABit.whenPressed(new MoveABit());
-		revIn.whileHeld(new RevIn());
-		revOut.whileHeld(new RevOut());
+		
+		ExtendPiston.toggleWhenPressed(new ExtendPiston());
+		
+		RetractPiston.toggleWhenPressed(new RetractPiston());
+//		revIn.whileHeld(new RevIn());
+//		revOut.whileHeld(new RevOut());
 		//raiseLift.whenPressed(new RaiseLift());
 		//lowerLift.whenPressed(new LowerLift());
 		
