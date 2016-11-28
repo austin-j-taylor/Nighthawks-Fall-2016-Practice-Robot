@@ -22,8 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 // ARCADE
 	public static Drivetrain drivetrain;
-	public static OI oi;
 	public static Pneumatics pneumatics;
+	public static OI oi;
 //	public static Shooter shooter;
 
     Command autonomousCommand;
@@ -35,8 +35,8 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	drivetrain = new Drivetrain();
-		oi = new OI();
 		pneumatics = new Pneumatics();
+		oi = new OI();
 		
 //		shooter = new Shooter();
         chooser = new SendableChooser();
