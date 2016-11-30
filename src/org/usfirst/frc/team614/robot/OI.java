@@ -44,7 +44,8 @@ public class OI {
 
 
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
-	private static final Button togglePiston = new JoystickButton(driverGamepad, Gamepad.button_B);
+	private static final Button togglePiston1 = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
+	private static final Button togglePiston2 = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
 //	private static final Button retractPiston = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
 //	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_X);
 //	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_Y);
@@ -57,8 +58,9 @@ public class OI {
 		// button commands
 		
 		moveABit.whenPressed(new MoveABit());
-		
-		togglePiston.whileHeld(new TogglePiston());
+
+		togglePiston1.whileHeld(new TogglePiston(1));
+		togglePiston2.whileHeld(new TogglePiston(2));
 //		retractPiston.toggleWhenPressed(new RetractPiston());
 //		revIn.whileHeld(new RevIn());
 //		revOut.whileHeld(new RevOut());

@@ -9,16 +9,17 @@ import org.usfirst.frc.team614.robot.Robot;
  *
  */
 public class TogglePiston extends Command {
-
-    public TogglePiston() {
+	int piston;
+    public TogglePiston(int pist) {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.drivetrain);
+        requires(Robot.pneumatics);
+        piston = pist;
         
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		Robot.pneumatics.extendPiston();
+		Robot.pneumatics.extendPiston(piston);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,12 +34,12 @@ public class TogglePiston extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-		Robot.pneumatics.retractPiston();
+		Robot.pneumatics.retractPiston(piston);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-		Robot.pneumatics.retractPiston();
+		Robot.pneumatics.retractPiston(piston);
     }
 }
