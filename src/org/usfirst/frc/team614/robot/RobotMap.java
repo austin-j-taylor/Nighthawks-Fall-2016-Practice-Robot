@@ -19,11 +19,13 @@ public class RobotMap {
 	
 	// Motor Controller Ports (PWM)
 	// Change these when you shuffle PWM cables around
-	public static int drivetrainLeftMotor = 1;
-	public static int drivetrainRightMotor = 0;
+	public static int drivetrainLeftMotor = 0;
+	public static int drivetrainRightMotor = 1;
 	
-	public static int shooterLeftMotor = 3;
-	public static int shooterRightMotor = 2;
+	
+	
+	public static int shooterLeftMotor = 2;
+	public static int shooterRightMotor = 3;
 	public static int shooterAngleMotor = 4;
 	
 	

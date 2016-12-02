@@ -13,19 +13,20 @@ public class Pneumatics extends Subsystem {
 	private boolean pistonState1;
 	private boolean pistonState2;
 	private Compressor pneumaticCompressor;
-	private DoubleSolenoid piston1;
+	public DoubleSolenoid piston1;
 	private DoubleSolenoid piston2;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
 	public Pneumatics() {
+		pistonState1 = false;
+		pistonState2 = false;
+		
 		piston1 = new DoubleSolenoid(0, 1);
-		piston2 = new DoubleSolenoid(2, 3);
+//		piston2 = new DoubleSolenoid(2, 3);
 		
 		pneumaticCompressor = new Compressor(0);
 		pneumaticCompressor.setClosedLoopControl(true);
-		
-		
 	}
     
     public void extendPiston(int piston){

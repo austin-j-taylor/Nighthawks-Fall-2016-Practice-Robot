@@ -2,6 +2,7 @@ package org.usfirst.frc.team614.robot;
 
 import org.team708.robot.util.Gamepad;
 import org.usfirst.frc.team614.robot.commands.MoveABit;
+import org.usfirst.frc.team614.robot.commands.RevOutAndShoot;
 import org.usfirst.frc.team614.robot.commands.TogglePiston;
 
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -40,12 +41,14 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 	
 	public static Gamepad driverGamepad = new Gamepad(0);
-	public static Gamepad operatorGamepad = new Gamepad(1);
+//	public static Gamepad operatorGamepad = new Gamepad(1);
 
 
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
+	private static final Button revOutAndShoot = new JoystickButton(driverGamepad, Gamepad.button_B);
+	
 	private static final Button togglePiston1 = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
-	private static final Button togglePiston2 = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
+//	private static final Button togglePiston2 = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
 //	private static final Button retractPiston = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
 //	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_X);
 //	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_Y);
@@ -58,9 +61,10 @@ public class OI {
 		// button commands
 		
 		moveABit.whenPressed(new MoveABit());
+		revOutAndShoot.whenPressed(new RevOutAndShoot());
 
-		togglePiston1.whileHeld(new TogglePiston(1));
-		togglePiston2.whileHeld(new TogglePiston(2));
+		togglePiston1.whenPressed(new TogglePiston());
+//		togglePiston2.whileHeld(new TogglePiston(2));
 //		retractPiston.toggleWhenPressed(new RetractPiston());
 //		revIn.whileHeld(new RevIn());
 //		revOut.whileHeld(new RevOut());

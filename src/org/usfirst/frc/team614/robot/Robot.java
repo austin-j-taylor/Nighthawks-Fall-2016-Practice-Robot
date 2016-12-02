@@ -4,6 +4,7 @@ package org.usfirst.frc.team614.robot;
 import org.usfirst.frc.team614.robot.commands.MoveABit;
 import org.usfirst.frc.team614.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team614.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team614.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,6 +24,7 @@ public class Robot extends IterativeRobot {
 // ARCADE
 	public static Drivetrain drivetrain;
 	public static Pneumatics pneumatics;
+	public static Shooter shooter;
 	public static OI oi;
 //	public static Shooter shooter;
 
@@ -36,6 +38,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	drivetrain = new Drivetrain();
 		pneumatics = new Pneumatics();
+		shooter = new Shooter();
 		oi = new OI();
 		
 //		shooter = new Shooter();
