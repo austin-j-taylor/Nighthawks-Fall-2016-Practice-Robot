@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team614.robot;
 
-import org.usfirst.frc.team614.robot.commands.MoveABit;
+import org.usfirst.frc.team614.robot.commands.drivetrain.MoveABit;
 import org.usfirst.frc.team614.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team614.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team614.robot.subsystems.Shooter;
@@ -21,12 +21,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-// ARCADE
 	public static Drivetrain drivetrain;
 	public static Pneumatics pneumatics;
 	public static Shooter shooter;
 	public static OI oi;
-//	public static Shooter shooter;
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -41,10 +39,8 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		oi = new OI();
 		
-//		shooter = new Shooter();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new MoveABit());
-//        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
 	

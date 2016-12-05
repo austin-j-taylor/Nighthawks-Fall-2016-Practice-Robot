@@ -1,4 +1,7 @@
 package org.usfirst.frc.team614.robot;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -21,21 +24,12 @@ public class RobotMap {
 	// Change these when you shuffle PWM cables around
 	public static int drivetrainLeftMotor = 0;
 	public static int drivetrainRightMotor = 1;
-	
-	
-	
 	public static int shooterLeftMotor = 2;
 	public static int shooterRightMotor = 3;
 	public static int shooterAngleMotor = 4;
 	
-	
-	//Encoder ports (DIO)
-		
-		//Shooter Encoders
-		public static final int leftShooterEncoder_A  = 0;
-		public static final int leftShooterEncoder_B  = 1; 
-		public static final int rightShooterEncoder_A = 2;
-		public static final int rightShooterEncoder_B = 3;
-		public static final int angleShooterEncoder_A = 4;
-		public static final int angleShooterEncoder_B = 5;
+	// pneumatics
+	public static DoubleSolenoid.Value pistonOut = DoubleSolenoid.Value.kForward;
+	public static DoubleSolenoid.Value pistonIn = DoubleSolenoid.Value.kReverse;
+
 }

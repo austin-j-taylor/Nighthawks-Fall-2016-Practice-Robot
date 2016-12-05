@@ -1,46 +1,40 @@
-
-package org.usfirst.frc.team614.robot.commands;
-
-import edu.wpi.first.wpilibj.command.Command;
+package org.usfirst.frc.team614.robot.commands.shooter;
 
 import org.usfirst.frc.team614.robot.Robot;
 
-/**
- *
- */
-public class MoveABit extends Command {
-	int time;
+import edu.wpi.first.wpilibj.command.Command;
 
-    public MoveABit() {
+/**
+ * Spins the flywheels outward, doesn't stop.
+ */
+public class RevIn extends Command {
+
+    public RevIn() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.drivetrain);
-        
+        // eg. requires(chassis);
+    	requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        time = 1;
-    	setTimeout(time);
+    	Robot.shooter.revIn();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(0.5, 0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drivetrain.stop();
     }
 }

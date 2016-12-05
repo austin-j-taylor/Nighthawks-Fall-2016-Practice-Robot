@@ -1,9 +1,9 @@
 package org.usfirst.frc.team614.robot;
 
 import org.team708.robot.util.Gamepad;
-import org.usfirst.frc.team614.robot.commands.MoveABit;
-import org.usfirst.frc.team614.robot.commands.RevOutAndShoot;
 import org.usfirst.frc.team614.robot.commands.TogglePiston;
+import org.usfirst.frc.team614.robot.commands.drivetrain.MoveABit;
+import org.usfirst.frc.team614.robot.commands.shooter.RevOutAndShoot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
     //// CREATING BUTTONS
-    // One type of button is a joystick button which is any button on a joystick.
-    // You create one by telling it which joystick it's on and which button
+    // One type of button is a gamepad button which is any button on a gamepad.
+    // You create one by telling it which gamepad it's on and which button
     // number it is.
-    // Joystick stick = new Joystick(port);
-    // Button button = new JoystickButton(stick, buttonNumber);
+    // Gamepad gamepad = new Gamepad(port);
+    // Button button = new JoystickButton(gamepad, buttonNumber);
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
@@ -40,37 +40,20 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-	public static Gamepad driverGamepad = new Gamepad(0);
-//	public static Gamepad operatorGamepad = new Gamepad(1);
-
-
+	
+	// X-Box controller(s)
+	public static final Gamepad driverGamepad = new Gamepad(0);
+	
+	// Buttons attached to a controller
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
 	private static final Button revOutAndShoot = new JoystickButton(driverGamepad, Gamepad.button_B);
-	
 	private static final Button togglePiston1 = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
-//	private static final Button togglePiston2 = new JoystickButton(driverGamepad, Gamepad.button_R_Shoulder);
-//	private static final Button retractPiston = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
-//	private static final Button revIn = new JoystickButton(driverGamepad, Gamepad.button_X);
-//	private static final Button revOut = new JoystickButton(driverGamepad, Gamepad.button_Y);
-	//private static final Button raiseLift = new JoystickButton(driverGamepad, Gamepad.button_X);
-	//private static final Button lowerLift = new JoystickButton(driverGamepad, Gamepad.button_Y);
-	
 	
 	public OI() {
-		
-		// button commands
-		
+		// Attachment of buttons to commands
 		moveABit.whenPressed(new MoveABit());
 		revOutAndShoot.whenPressed(new RevOutAndShoot());
-
 		togglePiston1.whenPressed(new TogglePiston());
-//		togglePiston2.whileHeld(new TogglePiston(2));
-//		retractPiston.toggleWhenPressed(new RetractPiston());
-//		revIn.whileHeld(new RevIn());
-//		revOut.whileHeld(new RevOut());
-		//raiseLift.whenPressed(new RaiseLift());
-		//lowerLift.whenPressed(new LowerLift());
-		
 	}
 
 }

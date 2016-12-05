@@ -6,7 +6,9 @@ import org.usfirst.frc.team614.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * This command is called when Robot.drivetrain is initialized and never stops.
+ * Whenever execute() is called, the command reads the X-Box controller's joysticks
+ * and makes the robot drive with those values.
  */
 public class JoystickDrive extends Command {
 

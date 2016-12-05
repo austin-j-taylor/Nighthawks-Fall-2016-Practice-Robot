@@ -1,12 +1,11 @@
-package org.usfirst.frc.team614.robot.commands;
+package org.usfirst.frc.team614.robot.commands.shooter;
 
-import org.usfirst.frc.team614.robot.OI;
 import org.usfirst.frc.team614.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Spins the flywheels outward, doesn't stop.
  */
 public class RevOut extends Command {
 
@@ -14,7 +13,6 @@ public class RevOut extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shooter);
-//    	setTimeout(2);
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +22,6 @@ public class RevOut extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.revOut();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,12 +31,10 @@ public class RevOut extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooter.revOut();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.shooter.revOut();
     }
 }

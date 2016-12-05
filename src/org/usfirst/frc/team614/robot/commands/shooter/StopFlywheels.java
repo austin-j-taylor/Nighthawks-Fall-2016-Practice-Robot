@@ -1,27 +1,24 @@
-
-package org.usfirst.frc.team614.robot.commands;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.command.Command;
+package org.usfirst.frc.team614.robot.commands.shooter;
 
 import org.usfirst.frc.team614.robot.Robot;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
- * Toggles the shooter piston; if it's in, make it out, and vice versa.
+ * Stops spinning the flywheels
  */
-public class TogglePiston extends Command {
-    public TogglePiston() {
+public class StopFlywheels extends Command {
+
+    public StopFlywheels() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.pneumatics);
+        // eg. requires(chassis);
+    	requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if (Robot.pneumatics.piston.get().equals(DoubleSolenoid.Value.kForward)) {
-    		Robot.pneumatics.piston.set(DoubleSolenoid.Value.kReverse);
-    	} else {
-    		Robot.pneumatics.piston.set(DoubleSolenoid.Value.kForward);
-    	}
+    	Robot.shooter.stop();
+//    	Robot.shooter.shooterWheels.arcadeDrive(0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
