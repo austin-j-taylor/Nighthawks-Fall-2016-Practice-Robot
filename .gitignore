@@ -1,2 +1,3 @@
 .classpath
 build/jars/WPILib.jar
+*.classpath

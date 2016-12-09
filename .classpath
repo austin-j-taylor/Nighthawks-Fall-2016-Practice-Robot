@@ -6,7 +6,7 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/team614/wpilib/java/current/lib/WPILib-sources.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="networktables" sourcepath="networktables.sources"/>
+	<classpathentry kind="var" path="neworktables" sourcepath="networktables.sources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="var" path="navx-mxp"/>
 	<classpathentry kind="output" path="bin"/>
