@@ -1,0 +1,41 @@
+-Java Installation for 2017 FRC Teams
+	>Mike Anderson (Team 116, Herndon High School) robot_maker12@verizon.net
+	>Getting your RoboRIO ready
+		+Update the RoboRIO by USB, not Ethernet
+		+make sure the RoboRIO has the proper operating system image on it by using the RoboRIO imaging tool
+		+deploy the Java 8 JDK to the RoboRIO
+	>Some useful info
+		+RoboRIO runs Linux. SSH server is available (use Putty on Windows to get to SSH shell)
+			=File transfers from IDE use SCP
+		+Addressing is through mDNS - roborio-614-FRC.local
+		+the web server requires Microsoft Silverlight plug-in (Firefox browser only! )
+		+DO NOT delete the admin account, alll program transfers require it
+	>The development environment
+		+The IDE used is Eclipse Neon.
+		+FIRST is only suppporting Windows up to 10, but "libraries and compilers are available for OX/X and Linux"
+		+The Java 8 JDK must be installed on your system (the JDK, not just the JRE from http://java.com)
+	>Installing the FRC 2017 Update Suite
+		+First, remove any old LabVIEW or driver station code. Takes about an hour and a half. sorry.
+		+run the update suite installer to install the following (takes about an hour and three quarters. sorry):
+			=the RoboRIO imaging tool
+			=the latest firmware releases
+			=latest driver station and smartDashboard
+	>Installing Third-Party libraries
+		+FIRST has unbundles libraries for certain motor controllers
+		+You'll need to go to the product's website to get the instructions for integrating the libaries into Eclipse
+		+Add the libaries and header files to the seach path of your project.
+	>Installing Java onto the RoboRIO
+		+connect your computer to both the RoboRIO and the internet
+		+run java-installer.jar at C:\Users\<username>\wpilib\tools
+		+repeat for each RoboRIO
+		+DO NOT USE "hardware floating point", get the "software float point" version, or your RoboRIO will die a death worse than being forced to watch JD's anime collection on repeat for eternity
+	>Building the Project
+		+Eclipose will default to creating the project. CLEAN it first.
+		+Set the Team # in Window>Preferences.
+		+Once the code is built, select Run As>WPILib Java Deploy
+	>Resources
+		+Chief Delphi - chiefdelphi.com
+		+FIRST forums - forums.usfirst.org
+		+NI Community Forums - ni.com/FIRST
+		+WPI/FIRST NSF Community site (ThinkTank)
+		+NI Phone support - 866-511-6285 (1PM-7PM CST, M-F)

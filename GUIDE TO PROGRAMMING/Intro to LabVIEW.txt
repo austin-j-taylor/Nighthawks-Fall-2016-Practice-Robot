@@ -1,0 +1,15 @@
+-Intro to LabVIEW
+	>LabVIEW is a drag-and-drop programming language. It's good for beginners with no prior knowledge of coding.
+	>A LabVIEW project is organized into a nested dolls-sort of thing, called "VI"s
+	>Begin VI tells the robot what is on the robot
+	>Teleop VI when you're driving
+	>Autonomous VI when I'm bored (play "When I'm Bored" here)
+	>Connections are made by drawing lines between values and operations
+		+connect two conditionals to a box that represents an AND operation
+		+Color of a triangle on a wire indicates data type
+	>Begin VI
+		+initializes all added motors
+			=to give an object a name, click the object>create>constant
+		+Once the robot knows what's on it, add inputs to things
+		+Structures (for, while, event, etc.) are boxes that hold the objects that act when true/false/etc.
+		

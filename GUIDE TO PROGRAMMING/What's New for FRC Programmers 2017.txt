@@ -1,0 +1,17 @@
+-What's New for FRC Programmers 2017
+	>Functionality with Eclipse Luna, Mars, Neon
+	>Some aspects of the code work as expected, but lower-level parts of code broke
+	>Old libraries such as NavX simply broke
+			*chantillyrobotics.org will eventually post what they believe is wrong with the libraries. Once we update to FRC 2017, unless NavX fixes their stuff, it won't work.
+	The Good:
+		-Eclipse is still a thing
+		-That's it
+		-There's nothing else
+	The Bad:
+		-Many motor controller support removed
+		-WPIlib is not properly documented; lower-level features are hidden
+	How to Upgrade:
+		-Run FRC installer for windows
+		-install Eclipse Luna, Mars, or Neon
+		-install FRC eclipse plugin
+		-Import project into Eclipse

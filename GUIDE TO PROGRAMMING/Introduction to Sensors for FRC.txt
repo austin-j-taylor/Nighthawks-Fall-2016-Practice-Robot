@@ -1,0 +1,88 @@
+-Introduction to Sensors for FRC
+	>The current Voltage Regulator modules may have stickers saying "router goes here" over 5V; it's wrong, the most modern routers go into the 12V. check the voltage on the router itself first!
+	>On the RoboRIO
+		+PWM on the RoboRIO is ONLY OUTPUT.
+		+Analog input is a 12-bit int from 0-4096
+		+DIO (Digital Input/Output) can be either and is 0-5V
+		+Inter IC Communiations Bus (I2C) is a simple two-wire bus that lets you SELECT device X and READ from device X)
+		+RSL is for the Robot Signal Light used during the
+		+the Ethernet port is for DEPLOYING code
+		+the USB-B port is for UPLOADING ROBORIO STUFF to the RoboRIO (the OS, Java, etc)
+		+the two more modern USB connections are for devices like cameras on the robot
+	>Limit Switch (DIO)
+		+Either open or closed
+		+When the lever of the Switch is physically pushed, it stops the motor from moving.
+		+set to be Always On -> off when touched OR Always Off -> on when touched
+		+In wpilib 2017, conventional bonary logic is reversed: 1 is false, 0 is true. This may be changed.
+		+Connects to a motor controller (not ones that just have PWM connections, like ya boi VictorSP) and the motor controller automatically does its thing in a Closed Loop
+	>Postion Sensors (analog output; range of 0-4096)
+		+3 wires: Voltage, ground, signal return
+		+PS's take the form of a potentiometer attatched the a linkage. As the knob of a potentiometer is rotated, its resistance is increased, decreasing the current let through it
+		+can therefore be used to measure rotation/angle of an arm
+	>Position/Speed sensors/ENCODER (DIO under significant load. Best to use DIO as a counter. It uses the Field Programmable Gate Array on the RoboRIO)
+		+sensors use metal moving through a magnetic field (induction) to indicate motion
+		+can also be used as a limit switch
+		+calculate position, rotations
+		+can be used as a tachometer
+		+Rotary Encoder
+			=have a number of pulses per revolution
+			=given the diameter of the attach point, determines how far the system has moved
+			=can be used as a tachometer
+		+Quadrature encode
+			=uses optics to determine forward vs. backwards, which rotaries can't do
+			=usually a quad shaft encoder is atttached to the axle of the wheel
+			=given the wheel's diameter, you know the distance travelled
+			=doesn't work well with mecanum wheels, being designed the slip
+	>New Position Sensors
+		+can be used for absolute or relative position and velocty sensing		
+	>Play Selection Switches
+		+Often in autonomous, we want to select different plays based on our partener's capabilities
+		+Uses a series of digital inputs and toggle switches
+		+Often uses rotary switches with resistor ladders
+		+Measures the analog input to tell which switch position is selected
+		+Eats up DIOs like it's nothing
+	>Distance sensors
+		+typically work by sending out a pulse and measure the amount of time it takes to return; apply a formula to convert time to distance
+		+use infrared or ultrasonic pulses
+		+if you and another team are both using one, they interfere; to solve this, modify the frequency of the pulse.
+		+LASER Range Finders
+			=use a LASER to measure distance
+			=must be a Class 1 LASER, near IR
+			=very accurate and very fast
+	>Direction Sensors
+		+Gyroscopes (Analog IO or I2C)
+			=measure the RATE of turn
+				-WPIlib integrates functions to determine the angle of the robote relative to the starting direction using the gyro class
+			=subject to drift and can be off when colliding with other robots
+				-use the accelerometer to know that you've had collisions
+		+Magnetometer (digital compass)
+			=determines true degrees from true magnetic North
+			=subject to INTERFERENCE from MAGNETIC MOTORS!
+			=Gyros and Magnetos are typically solid-state MEMS sensors.
+		+Accelerometers
+			=detect tilt
+			=detect impacts and make adjustments to the gyro to correct drift
+			=the RoboRIO has a 3-axis accelerometer inside of it
+		+Inertial Measurement Unit (IMU)
+			=a combination of a Gyro, Magneto, and Accelerometer
+			=e.g. the NavX-MXP (I2C or one other thing, not sure, with 9 degrees of freedom (3-gyro, 3-magneto, 3-accelerometer)
+		+Sensors on Motor controllers
+			=2017 motor controllors all support limit switches
+		+Current Sensing
+			=the CAN bus on the RoboRIO can talk to the Power Distribution Board
+			=lets you measure current draw from any of the power slots
+			=helps locates bad motors or flaky gear boxes
+		+Pressure Sensors
+			=the Pneumatics Control Module has a built-in interface for the presssure switch
+			=automatic cut-off for compressor at a max value
+		+Interfacing with sensors
+			=WPIlib has a collection of interface support for RoboRIO-style ports
+			=always check what power the sensor needs before attaching to the RoboRIO
+		+Camera
+			=can be set to filter based on certain colors
+			=reflective tape andda colorered LED lets you do autotargeting
+			=dual cameras can do distance calculation
+				-can also be done with a single camera, as the size of the field/elements are known
+			=the OpenCV libraries in the RoboRIO help with significant image processing (not reccomended, as it is computation-heavy and MOVEMENT WILL GO OFFLINE. SO DONT DO IT.)
+		+Auxiliary Processors
+			=if the RoboRIO doesn't provide enough functionality, you can figure out how to plug other stuff an and he spent like 5 seconds on that slide ive got no idea what to do

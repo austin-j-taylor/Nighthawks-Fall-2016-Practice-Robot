@@ -1,0 +1,6 @@
+TODO:
+-Autonomous commands
+-SmartDashboard different autos and the click of a button
+-copy this and notes and pictures to Syl
+
+-Locate motor controller libraries
