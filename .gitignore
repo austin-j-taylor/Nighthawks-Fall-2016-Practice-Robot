@@ -3,3 +3,7 @@ build/jars/WPILib.jar
 *.classpath
 build/jars/WPILib.jar
 build/jars/NetworkTables.jar
+build/jars/NetworkTables.jar
+build/jars/WPILib.jar
+dist/FRCUserProgram.jar
+.classpath
