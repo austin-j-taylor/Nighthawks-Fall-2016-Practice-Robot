@@ -3,6 +3,8 @@ package org.usfirst.frc.team614.robot;
 import org.team708.robot.util.Gamepad;
 import org.usfirst.frc.team614.robot.commands.TogglePiston;
 import org.usfirst.frc.team614.robot.commands.drivetrain.MoveABit;
+import org.usfirst.frc.team614.robot.commands.navx.BeginDisplayingNavxData;
+import org.usfirst.frc.team614.robot.commands.navx.ZeroNavxYaw;
 import org.usfirst.frc.team614.robot.commands.shooter.RevOutAndShoot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -45,15 +47,24 @@ public class OI {
 	public static final Gamepad driverGamepad = new Gamepad(0);
 	
 	// Buttons attached to a controller
+	// Drivetrain
 	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
+	// Shooter
 	private static final Button revOutAndShoot = new JoystickButton(driverGamepad, Gamepad.button_B);
+	// Pneumatics
 	private static final Button togglePiston1 = new JoystickButton(driverGamepad, Gamepad.button_L_Shoulder);
+	// NavX
+	private static final Button beginDisplayingNavxData = new JoystickButton(driverGamepad, Gamepad.button_Start);
+	private static final Button zeroNavxYaw = new JoystickButton(driverGamepad, Gamepad.button_Back);
+
 	
 	public OI() {
 		// Attachment of buttons to commands
 		moveABit.whenPressed(new MoveABit());
 		revOutAndShoot.whenPressed(new RevOutAndShoot());
 		togglePiston1.whenPressed(new TogglePiston());
+		beginDisplayingNavxData.whenPressed(new BeginDisplayingNavxData());
+		zeroNavxYaw.whenPressed(new ZeroNavxYaw());
 	}
 
 }

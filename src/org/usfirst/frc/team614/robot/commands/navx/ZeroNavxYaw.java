@@ -1,19 +1,23 @@
-package org.usfirst.frc.team614.robot.commands;
+package org.usfirst.frc.team614.robot.commands.navx;
+
+import org.usfirst.frc.team614.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * sets the current yaw to be zero
  */
-public class DisplayNavX extends Command {
+public class ZeroNavxYaw extends Command {
 
-    public DisplayNavX() {
+    public ZeroNavxYaw() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if(Robot.navX.isConnected())
+    		Robot.navX.zeroYaw();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +26,7 @@ public class DisplayNavX extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
