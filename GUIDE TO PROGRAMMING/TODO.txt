@@ -1,6 +1,8 @@
-TODO:
+Training:
 -Autonomous commands
 -SmartDashboard different autos and the click of a button
--copy this and notes and pictures to Syl
+
+
+BUILD SEASON:
 
 -Locate motor controller libraries

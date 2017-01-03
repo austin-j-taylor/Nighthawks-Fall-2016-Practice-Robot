@@ -1,0 +1,28 @@
+*MAXIMUM IMPORTATANT*
+the navX, like all stuff, needs to be CALIBRATED, most notably WHEN YOU GET TO FRC EVENTS. Be sure to hold the baby still while calibrating.
+http://www.pdocs.kauailabs.com/navx-mxp/guidance/gyroaccelcalibration/
+The Calibraton process has 3 phases:
+	>Factory Calibration (the originial calibration done at the factory; used as a starting point)
+		-you can optionally re-calibrate the gyroscope by pressing and holding the “CAL” button for at least 10 seconds. When you release the “CAL” button, ensure that the “CAL” Led flashes briefly, and then press the “RESET” button to restart navX-MXP. When navX-MXP is re-started, it will perform the Initial Gyro Calibration – the same process that occurs at the factory. You might consider performing this process before using your robot the first time it is used within a new environment (e.g., when you arrive at a FTC competition event).
+	>Startup Calibration (occurs each time the navX is powered on)
+		-Immediately after Startup Calibration, "Initial Yaw Offset" is calculated; this ensures that the "Front" of the navX circuit bard is considered "0 degrees" in yaw.
+	>On-the-fly (automatically called after 8 seconds of no motion, taking about 8 more seconds, and is transparent to the user)
+	
+
+-SEE THE NAVX OUTPUTS LIVE - go to the bottom of the page and follow the instructions. The navX must be connected to a computer by USB.
+http://www.pdocs.kauailabs.com/navx-mxp/software/navx-mxp-ui/
+
+
+-use SPI to communicate with robotics control applications... maybe? I'm not sure tbh ¯\_(?)_/¯
+http://www.pdocs.kauailabs.com/navx-mxp/guidance/selecting-an-interface/
+
+-commands from the libraries can be called to check when the navX is calibrating or to set the current yaw angle to be the new 0. It's reccomendeded to bind a button to a command to set the new yaw to be 0 for extended periods of training to negate yaw drift. In a single FRC match, the yaw drift likely won't be very significant.
+
+-Using the navX-MXP yaw angle before calibration completes may result in errors in robot control. To avoid this situation, your robot software should verify that calibration has completed (e.g., by calling the isCalibrating() function) before using navX-MXP data.
+
+-Get the 3D-printer folk to print this out to protect the precious $100 baby:
+http://www.pdocs.kauailabs.com/navx-mxp/installation/creating-an-enclosure/
+
+-it is reccomended to connect the navX to the roboRIO using a USB cable to prevent brownouts, as the navX will switch to use power from the RoboRIO's USB port in the case of a brownout.
+
+-Plan for failure - make sure the code doesn't crash if it can't receive navX input. An easy way to accomplish this is to use the “isConnected()” method, and only use navX-MXP sensor data to control your robot when this is true.
