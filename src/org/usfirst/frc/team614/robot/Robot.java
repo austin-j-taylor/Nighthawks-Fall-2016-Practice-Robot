@@ -99,6 +99,9 @@ public class Robot extends IterativeRobot {
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
+    // default autonomous command
+    public void autonomous() {
+    }
 
     /**
      * This function is called periodically during autonomous
@@ -128,7 +131,8 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
-    public static void operatorControl() {
+    public static void printNavxData() {
+    	
     	double start_time = Timer.getFPGATimestamp();
         Timer.delay(0.020);		/* wait for one motor update time period (50Hz)     */
         
@@ -149,6 +153,7 @@ public class Robot extends IterativeRobot {
         }
         
         /* Display 6-axis Processed Angle Data                                      */
+//        SmartDashboard.putData("     ");
         SmartDashboard.putBoolean(  "IMU_Connected",        navX.isConnected());
         SmartDashboard.putBoolean(  "IMU_IsCalibrating",    navX.isCalibrating());
         SmartDashboard.putNumber(   "IMU_Yaw",              navX.getYaw());

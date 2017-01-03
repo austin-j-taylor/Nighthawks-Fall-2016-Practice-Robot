@@ -9,7 +9,8 @@ import org.usfirst.frc.team614.robot.Robot;
  * Makes the drivetrain move at .5 speed for 1 second
  */
 public class MoveABit extends Command {
-	int time;
+	private int time;
+	boolean movingForward = true;
 
     public MoveABit() {
         // Use requires() here to declare subsystem dependencies
@@ -19,18 +20,26 @@ public class MoveABit extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        time = 1;
-    	setTimeout(time);
+    	Robot.navX.zeroYaw();
+    	Robot.printNavxData();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(0.5, 0.0);
+    	if(movingForward) {
+    		Robot.drivetrain.arcadeDrive(-0.5, 0.0);
+	    	if(Robot.navX.getYaw() > 3)
+	    		movingForward = false;
+    	} else {
+    		Robot.drivetrain.arcadeDrive(0.5, 0.0);
+	    	if(Robot.navX.getYaw() < 0)
+	    		movingForward = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true

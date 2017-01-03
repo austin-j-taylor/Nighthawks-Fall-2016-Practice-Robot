@@ -3,7 +3,7 @@ package org.usfirst.frc.team614.robot;
 import org.team708.robot.util.Gamepad;
 import org.usfirst.frc.team614.robot.commands.TogglePiston;
 import org.usfirst.frc.team614.robot.commands.drivetrain.MoveABit;
-import org.usfirst.frc.team614.robot.commands.navx.BeginDisplayingNavxData;
+import org.usfirst.frc.team614.robot.commands.navx.DisplayNavxData;
 import org.usfirst.frc.team614.robot.commands.navx.ZeroNavxYaw;
 import org.usfirst.frc.team614.robot.commands.shooter.RevOutAndShoot;
 
@@ -63,7 +63,7 @@ public class OI {
 		moveABit.whenPressed(new MoveABit());
 		revOutAndShoot.whenPressed(new RevOutAndShoot());
 		togglePiston1.whenPressed(new TogglePiston());
-		beginDisplayingNavxData.whenPressed(new BeginDisplayingNavxData());
+		beginDisplayingNavxData.whenPressed(new DisplayNavxData());
 		zeroNavxYaw.whenPressed(new ZeroNavxYaw());
 	}
 

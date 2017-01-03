@@ -5,11 +5,11 @@ import org.usfirst.frc.team614.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * sets the current yaw to be zero (and prints out new values)
+ * begins displaying the navx data to smartdashboard
  */
-public class ZeroNavxYaw extends Command {
+public class DisplayNavxData extends Command {
 
-    public ZeroNavxYaw() {
+    public DisplayNavxData() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -17,7 +17,6 @@ public class ZeroNavxYaw extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	if(Robot.navX.isConnected()) {
-    		Robot.navX.zeroYaw();
     		Robot.printNavxData();
     	}
     }
