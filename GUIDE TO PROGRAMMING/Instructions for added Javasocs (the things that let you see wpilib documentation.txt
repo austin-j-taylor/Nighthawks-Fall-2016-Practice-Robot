@@ -1,0 +1,4 @@
+In eclipse, click Window -> Show View -> Other -> Internal Web Browser then enter the URL C:/Users/USERNAME/Documents/GitHub/NAME_OF_REPOSITORY/wpilib/java/current/javadoc/index.html
+
+USERNAME is your computer's username.
+NAME_OF_REPOSITORY is probably Nighthawks-Fall-2016...

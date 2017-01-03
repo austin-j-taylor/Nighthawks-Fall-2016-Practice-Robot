@@ -1,8 +1,11 @@
 Training:
 -Autonomous commands
 -SmartDashboard different autos and the click of a button
+<<<<<<< HEAD
 
 
 BUILD SEASON:
+=======
+>>>>>>> origin/master
 
 -Locate motor controller libraries
