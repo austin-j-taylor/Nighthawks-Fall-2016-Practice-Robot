@@ -2,7 +2,7 @@ package org.usfirst.frc.team614.robot;
 
 import org.team708.robot.util.Gamepad;
 import org.usfirst.frc.team614.robot.commands.TogglePiston;
-import org.usfirst.frc.team614.robot.commands.drivetrain.MoveABit;
+import org.usfirst.frc.team614.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team614.robot.commands.navx.DisplayNavxData;
 import org.usfirst.frc.team614.robot.commands.navx.ZeroNavxYaw;
 import org.usfirst.frc.team614.robot.commands.shooter.RevOutAndShoot;
@@ -48,7 +48,7 @@ public class OI {
 	
 	// Buttons attached to a controller
 	// Drivetrain
-	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
+//	private static final Button moveABit = new JoystickButton(driverGamepad, Gamepad.button_A);
 	// Shooter
 	private static final Button revOutAndShoot = new JoystickButton(driverGamepad, Gamepad.button_B);
 	// Pneumatics
@@ -60,7 +60,7 @@ public class OI {
 	
 	public OI() {
 		// Attachment of buttons to commands
-		moveABit.whenPressed(new MoveABit());
+//		moveABit.whenPressed(new DriveStraight());
 		revOutAndShoot.whenPressed(new RevOutAndShoot());
 		togglePiston1.whenPressed(new TogglePiston());
 		beginDisplayingNavxData.whenPressed(new DisplayNavxData());

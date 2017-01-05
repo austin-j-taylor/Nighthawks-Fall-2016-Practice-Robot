@@ -1,14 +1,16 @@
 
 package org.usfirst.frc.team614.robot;
 
-import org.usfirst.frc.team614.robot.commands.drivetrain.MoveABit;
+import org.usfirst.frc.team614.robot.commands.drivetrain.DriveStraight;
 import org.usfirst.frc.team614.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team614.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team614.robot.subsystems.Shooter;
 
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
@@ -31,7 +33,8 @@ public class Robot extends IterativeRobot {
 	public static Pneumatics pneumatics;
 	public static Shooter shooter;
 	public static OI oi;
-
+//	public static Encoder encoder = new Encoder(RobotMap.encoderA, RobotMap.encoderB, true, EncodingType.k4X);
+	
     Command autonomousCommand;
     SendableChooser chooser;
 
@@ -41,6 +44,13 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 
+        // SmartDashbord values
+//        SmartDashboard.putNumber("RotateValue", .1);
+        SmartDashboard.putNumber("SpeedValue", .5);
+        SmartDashboard.putNumber("kP", 0.30);
+        SmartDashboard.putNumber("kI", 0.00);
+        SmartDashboard.putNumber("kD", 0.00);
+        
         try {
             /* Communicate w/navX MXP via the MXP SPI Bus.                                     */
             /* Alternatively:  I2C.Port.kMXP, SerialPort.Port.kMXP or SerialPort.Port.kUSB     */
@@ -56,7 +66,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new MoveABit());
+        chooser.addDefault("Default Auto", new DriveStraight(1));
         SmartDashboard.putData("Auto mode", chooser);
     }
 	

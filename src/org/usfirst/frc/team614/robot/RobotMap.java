@@ -19,6 +19,9 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 
+	// DIO
+	public static int encoderA = 0;
+	public static int encoderB = 1;
 	
 	// Motor Controller Ports (PWM)
 	// Change these when you shuffle PWM cables around

@@ -4,6 +4,7 @@ import org.usfirst.frc.team614.robot.OI;
 import org.usfirst.frc.team614.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This command is called when Robot.drivetrain is initialized and never stops.
@@ -24,7 +25,7 @@ public class JoystickDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.arcadeDrive(-OI.driverGamepad.getAxis(OI.driverGamepad.leftStick_Y), -OI.driverGamepad.getAxis(OI.driverGamepad.rightStick_X));
+    	Robot.drivetrain.arcadeDrive(OI.driverGamepad.getAxis(OI.driverGamepad.leftStick_Y), OI.driverGamepad.getAxis(OI.driverGamepad.rightStick_X));
     }
 
     // Make this return true when this Command no longer needs to run execute()
