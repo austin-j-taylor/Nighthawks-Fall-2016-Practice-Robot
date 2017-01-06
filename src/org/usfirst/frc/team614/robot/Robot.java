@@ -2,15 +2,14 @@
 package org.usfirst.frc.team614.robot;
 
 import org.usfirst.frc.team614.robot.commands.drivetrain.DriveStraight;
+import org.usfirst.frc.team614.robot.commands.navx.ZeroNavxYaw;
 import org.usfirst.frc.team614.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team614.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team614.robot.subsystems.Shooter;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
@@ -43,22 +42,21 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-
-        // SmartDashbord values
-//        SmartDashboard.putNumber("RotateValue", .1);
-        SmartDashboard.putNumber("SpeedValue", .5);
-        SmartDashboard.putNumber("kP", 0.30);
-        SmartDashboard.putNumber("kI", 0.00);
-        SmartDashboard.putNumber("kD", 0.00);
-        
         try {
-            /* Communicate w/navX MXP via the MXP SPI Bus.                                     */
+            /* Begins communication with NavX.                                     */
             /* Alternatively:  I2C.Port.kMXP, SerialPort.Port.kMXP or SerialPort.Port.kUSB     */
             /* See http://navx-mxp.kauailabs.com/guidance/selecting-an-interface/ for details. */
             navX = new AHRS(SPI.Port.kMXP,(byte)200);
         } catch (RuntimeException ex ) {
             DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
         }
+
+        // SmartDashbord values
+        SmartDashboard.putNumber("Default Speed", .5);
+//        SmartDashboard.putNumber("kP", 0.30);
+//        SmartDashboard.putNumber("kI", 0.00);
+//        SmartDashboard.putNumber("kD", 0.00);
+        SmartDashboard.putData("Zero Yaw", new ZeroNavxYaw());
         
     	drivetrain = new Drivetrain();
 		pneumatics = new Pneumatics();
@@ -66,7 +64,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new DriveStraight(1));
+        chooser.addDefault("Default Auto", new DriveStraight());
         SmartDashboard.putData("Auto mode", chooser);
     }
 	

@@ -28,7 +28,7 @@ public class Drivetrain extends Subsystem implements PIDOutput {
     /* controllers by displaying a form where you can enter new P, I,  */
     /* and D constants and test the mechanism.                         */
     
-    static final double kP = 0.03;
+    static final double kP = 0.30;
     static final double kI = 0.00;
     static final double kD = 0.00;
     static final double kF = 0.00;
@@ -44,7 +44,7 @@ public class Drivetrain extends Subsystem implements PIDOutput {
     	drivetrain = new RobotDrive(leftMotor, rightMotor);
 
 //        turnController = new PIDController(kP, kI, kD, kF, Robot.navX, this);
-        turnController = new PIDController(SmartDashboard.getNumber("kP"), SmartDashboard.getNumber("kI"), SmartDashboard.getNumber("kD"), kF, Robot.navX, this);
+        turnController = new PIDController(kP, kI,kD, kF, Robot.navX, this);
         turnController.setInputRange(-180.0f,  180.0f);
         turnController.setOutputRange(-1.0, 1.0);
         turnController.setAbsoluteTolerance(kToleranceDegrees);

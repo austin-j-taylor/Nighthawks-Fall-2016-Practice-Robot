@@ -1,5 +1,6 @@
 Good help:
 http://www.csimn.com/CSI_pages/PIDforDummies.html
 
-Some good strategies for tuning (NOT OBJECTIVELY TRUE!)
+Some good strategies for tuning (NOT OBJECTIVELY TRUE)
+http://innovativecontrols.com/blog/basics-tuning-pid-loops
 http://robotics.stackexchange.com/questions/167/what-are-good-strategies-for-tuning-pid-loops
