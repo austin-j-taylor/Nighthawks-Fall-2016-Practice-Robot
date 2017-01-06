@@ -3,6 +3,7 @@ package org.usfirst.frc.team614.robot.commands.drivetrain;
 
 import org.usfirst.frc.team614.robot.Robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -18,13 +19,16 @@ public class DriveStraight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.navX.zeroYaw();
-    	Robot.printNavxData();
-    	Robot.drivetrain.setUsingPID(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	while(Robot.navX.getYaw() > 1 || Robot.navX.getYaw() < -1) {
+	    	Robot.navX.zeroYaw();
+	    	Robot.printNavxData();
+	    	Robot.drivetrain.getController().enable();
+	    	Robot.drivetrain.setUsingPID(true);
+    	}
     	Robot.drivetrain.arcadeDrive(SmartDashboard.getNumber("SpeedValue", 0), Robot.drivetrain.getRotateRate());
     }
 
@@ -35,12 +39,16 @@ public class DriveStraight extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drivetrain.getController().disable();
+    	Robot.drivetrain.setUsingPID(false);
     	Robot.drivetrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.drivetrain.getController().disable();
+    	Robot.drivetrain.setUsingPID(false);
     	Robot.drivetrain.stop();
     }
 }

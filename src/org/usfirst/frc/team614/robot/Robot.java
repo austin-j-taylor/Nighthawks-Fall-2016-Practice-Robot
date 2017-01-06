@@ -74,7 +74,11 @@ public class Robot extends IterativeRobot {
 	 * the robot is disabled.
      */
     public void disabledInit(){
-
+    	Robot.navX.zeroYaw();
+    	Robot.navX.reset();
+    	Robot.printNavxData();
+    	drivetrain.setUsingPID(false);
+    	drivetrain.getController().disable();
     }
 	
 	public void disabledPeriodic() {

@@ -56,8 +56,6 @@ public class Drivetrain extends Subsystem implements PIDOutput {
         LiveWindow.addActuator("DriveSystem", "RotateController", turnController);
         
         turnController.setSetpoint(0.0f);
-        if(usingPID)
-        	turnController.enable();
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -82,6 +80,9 @@ public class Drivetrain extends Subsystem implements PIDOutput {
 	}
 	public void setUsingPID(boolean set) {
 		usingPID = set;
+	}
+	public PIDController getController() {
+		return turnController;
 	}
 }
 
